@@ -43,7 +43,7 @@
 </p>
 	<pre>event: Reception433Mhz  data: {"data":"414 FFF0FFFFFFF1","ttl":"60","published_at":"2015-05-26T12:26:42.209Z","coreid":"xxxxxxxxxxxxxxxx"} 
 </pre>
-	<p>Vous devrez noter le code de chacune des fonctions que vous  voulez utiliser</p>
+	<p>Vous devrez noter le code situé après data de chacune des fonctions que vous  voulez utiliser. Pour le 433Mh, il ne faut pas prendre en compte les 3 premier chiffres</p>
     <p>Attention : il y a un bug que je ne comprend pas dans mon programme, la réception  des codes infrarouge ne fonctionne que lors du démarrage de la carte. Si vous  commandez un périphériques avec sarah, la réception ne fonctionnera plus et il  faudra redémarrer la carte pour pouvoir noter les codes.</p>
 <p>&nbsp; </p>
 	<h2>Utilisation avec SARAH</h2>
@@ -56,7 +56,7 @@
 <p>Pour envoyer plusieurs commandes à la fois, il suffit de  mettre un tiret après chaque codes (le code en supporte 3  au maximum) ex : </p>
 <pre><em>&lt;item&gt;Allume la télé et l'ampli&lt;tag&gt;out.action.ir_code=&quot;CODE1-CODE2&quot;;&lt;/tag&gt;&lt;/item&gt;</em></pre>
 <h3>433Mhz</h3>
-<pre><em>&lt;item&gt;Allume la lumiere&lt;tag&gt;out.action.code_433=&quot;FFF00FFFFFFF&quot;;&lt;/tag&gt;&lt;/item&gt;</em></pre>
+<pre><em>&lt;item&gt;Allume la lumiere&lt;tag&gt;out.action.code_433=&quot;CODE&quot;;&lt;/tag&gt;&lt;/item&gt;</em></pre>
 <h3>Température/humidité</h3>
 <pre><em>&lt;item&gt;Donne moi la température&lt;tag&gt;out.action.command = &quot;temperature&quot;;&lt;/tag&gt;&lt;/item&gt;<br>
 &lt;item&gt;Donne moi l'humidté&lt;tag&gt;out.action.command=&quot;humidite&quot;;&lt;/tag&gt;&lt;/item&gt;</em></pre>
