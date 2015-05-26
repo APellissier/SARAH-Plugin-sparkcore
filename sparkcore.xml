@@ -1,5 +1,5 @@
-<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="sparkCore" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
-	<rule id="sparkCore" scope="public">
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="sparkcore" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="sparkcore" scope="public">
 		<example>Sarah met france 2</example>
 		<tag>out.action=new Object(); </tag>
 
@@ -32,7 +32,7 @@
 		</one-of>
 		
 		
-		<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/sparkCore";</tag>
+		<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/sparkcore";</tag>
 		
 	</rule>
 </grammar>

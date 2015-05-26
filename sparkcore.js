@@ -1,19 +1,19 @@
 exports.action = function(data, callback, config, SARAH){
 	
 	// Recuperation de la configuration
-	config = config.modules.sparkCore;
+	config = config.modules.sparkcore;
 	if (!config.spark_apikey){
-		console.log("spark_apikey non défini dans le fichier sparkCore.prop");
+		console.log("spark_apikey non défini dans le fichier sparkcore.prop");
 		callback({'tts' : 'Clé A P I non défini'});
 		return;
 	}
 	if (!config.spark_name){
-		console.log("spark_name non défini dans le fichier sparkCore.prop");
+		console.log("spark_name non défini dans le fichier sparkcore.prop");
 		callback({'tts' : 'Nom du spark core non défini'});
 		return;
 	}
 	if (!config.spark_function){
-		console.log("spark_function non défini dans le fichier sparkCore.prop");
+		console.log("spark_function non défini dans le fichier sparkcore.prop");
 		callback({'tts' : 'Nom de la fonction non défini'});
 		return;
 	}

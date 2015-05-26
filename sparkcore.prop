@@ -1,6 +1,6 @@
 {
   "modules" : { 
-    "sparkCore"  : {
+    "sparkcore"  : {
       "description": "Commande Infrarouge/433Mhz, réception de la température et de l'humidité via Spark Core",
       "version"    : "1.0",
 	  "spark_address" : "https://api.spark.io/v1/devices/",
