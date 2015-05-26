@@ -1,0 +1,38 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="sparkCore" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="sparkCore" scope="public">
+		<example>Sarah met france 2</example>
+		<tag>out.action=new Object(); </tag>
+
+		<item>Sarah</item>
+		<one-of>
+			<item>Met TF1<tag>out.action.ir_code="551520375";</tag></item>
+			<item>Met France2<tag>out.action.ir_code="551504055";</tag></item>
+			<item>Met France 3<tag>out.action.ir_code="551536695";</tag></item>
+			<item>Met Canal +<tag>out.action.ir_code="551495895";</tag></item>
+			<item>Met France 5<tag>out.action.ir_code="551528535";</tag></item>
+			<item>Met M6<tag>out.action.ir_code="551512215";</tag></item>
+			<item>Met ARTE<tag>out.action.ir_code="551544855";</tag></item>
+			<item>Met D8<tag>out.action.ir_code="551491815";</tag></item>
+			<item>Met W9<tag>out.action.ir_code="551524455";</tag></item>
+			<item>Met TMC<tag>out.action.ir_code="551520375-551487735";</tag></item>
+			<item>Met NT1<tag>out.action.ir_code="551520375-551520375";</tag></item>
+			<item>Met Nostalgie<tag>out.action.ir_code="551495895-551528535-551544855";</tag></item>
+			
+			<item>Allume la télé et l'ampli<tag>out.action.ir_code="551489775-2122415745";</tag></item>
+			<item>Eteind la télé et l'ampli<tag>out.action.ir_code="551489775-2122448385";</tag></item>
+			
+			<item>Allume la télé<tag>out.action.ir_code="551489775";</tag></item>
+			<item>Eteind l'ampli<tag>out.action.ir_code="2122448385";</tag></item>
+
+			
+			<item>Allume la lumiere<tag>out.action.code_433="FFF00FFFFFFF";</tag></item>
+			<item>Eteind la lumiere<tag>out.action.code_433="FFF00FFFFFF0";</tag></item>
+			<item>Donne moi la température<tag>out.action.command = "temperature";</tag></item>
+			<item>Donne moi l'humidté<tag>out.action.command="humidite";</tag></item>
+		</one-of>
+		
+		
+		<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/sparkCore";</tag>
+		
+	</rule>
+</grammar>

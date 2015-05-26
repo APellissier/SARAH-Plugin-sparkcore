@@ -1,0 +1,63 @@
+﻿<!Doctype html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<body>
+
+	<p>Ce plug-in vous permet de commander des périphériques  infrarouges ainsi que des prises activables à distance en 433 Mhz que l'on  trouve couramment dans les supermarchés et autres magasin de bricolage. Il  permet aussi de connaitre la température intérieur ainsi que l'humidité votre pièce.</p>
+<h2>Prerequis</h2>
+	<ul>
+		<li>Un SparkCore</li>
+		<li>Un module récepteur   433Mhz</li>
+		<li>Un module émetteur   433Mhz</li>
+		<li>Un émetteur   inrarouge</li>
+		<li>Un récepteur infrarouge</li>
+		<li>Un capteur   de température/humidité  DHT22/DHT11/DHT21</li>
+	</ul>
+	<h2>Câblage</h2>
+	<p>Vous trouverez toutes le infos necesaire sur internet, voici quelques liens :</p>
+	<h3>DHT22</h3>
+	<p><a href="https://raygun.io/blog/2014/09/home-automation-the-easy-way/">https://raygun.io/blog/2014/09/home-automation-the-easy-way/</a></p>
+	<h3>Emmeteur IR</h3>
+<p><a href="http://www.blackcj.com/blog/2014/08/10/control-an-ir-device-with-a-spark-core/">http://www.blackcj.com/blog/2014/08/10/control-an-ir-device-with-a-spark-core/</a></p>
+	<h3>Récepteur infrarouge	</h3>
+	<p><a href="http://www.seeedstudio.com/wiki/Grove_-_Infrared_Receiver">http://www.seeedstudio.com/wiki/Grove_-_Infrared_Receiver</a></p>
+	<h3>Recepteur Emmeteur 433Mhz</h3>
+	<p><a href="http://arduinobasics.blogspot.fr/2014/07/433-mhz-rf-module-with-arduino-tutorial_30.html">http://arduinobasics.blogspot.fr/2014/07/433-mhz-rf-module-with-arduino-tutorial_30.html</a></p>
+	<p>&nbsp;</p>
+	
+	
+<h2>Code sparkCore</h2>
+	<p>Rendez-vous sur l'IDE sparkcore, créez un nouveau projet et  nommez le comme vous voulez.    </p>
+	<p>Copiez le code contenu dans le fichier skecth/sparkCore.ino  dans votre nouveau projet.</p>
+    <p>Ajoutez une nouvel page à votre projet en cliquant sur le  petit plus en haut a droite et nommez le IRremote, ceci va créer deux nouveaux  onglets IRremote.cpp et IRremote.h</p>
+    <p>Copiez le contenu sketch/IRremote.h dans IRremote.h et faite  de même pour IRremote.cpp</p>
+    <p>Ajoutez ensuite la bibliothèque ADAFRUIT_DHT ainsi que la bibliothèque  RCSWITCH à votre projet et flashez le tout.</p>
+    <p>&nbsp;</p>
+<h2>Réception des codes</h2>
+	<p>En premier lieu, vous devez noter les codes de vos périphériques  en vous rendant sur  <pre>https://api.spark.io/v1/devices/LE_NOM_DE_VOTRE_PERIPHERIQUE/events/?access_token=VOTRE_CLE_API </pre></p>
+<p>A chaque commande reçue vous verrez sur la page un code de  cette forme :
+</p>
+<p>Pour l'inrarouge :</p>
+<pre>event: ReceptionIR  data: {"data":"4294967295","ttl":"5","published_at":"2015-05-26T12:40:10.566Z","coreid":"xxxxxxxxxxxxxxxx"}  </pre>
+	<p><br> 
+	Pour le 433Mhz :
+</p>
+	<pre>event: Reception433Mhz  data: {"data":"414 FFF0FFFFFFF1","ttl":"60","published_at":"2015-05-26T12:26:42.209Z","coreid":"xxxxxxxxxxxxxxxx"} 
+</pre>
+	<p>Vous devrez noter le code de chacune des fonctions que vous  voulez utiliser</p>
+    <p>Attention : il y a un bug que je ne comprend pas dans mon programme, la réception  des codes infrarouge ne fonctionne que lors du démarrage de la carte. Si vous  commandez un périphériques avec sarah, la réception ne fonctionnera plus et il  faudra redémarrer la carte pour pouvoir noter les codes.</p>
+<p>&nbsp; </p>
+	<h2>Utilisation avec SARAH</h2>
+	<h3>Configuration</h3>
+	<p>Ouvrez le fichier <em>sparkCore.prop</em> et renseignez le champ &quot;spark_name&quot; et &quot;spark_apikey&quot; par le nom de votre spark core et votre clé API.</p>
+	<p>Ensuite ouvrez le fichier sparkCore.xml et modifiez les commandes comme vous le souhaitez avec les commandes ci-dessous.</p>
+<h3>Infrarouge</h3>
+<p>Les commandes infrarouges s'envoient avec cette commande:</p>
+<pre>&lt;item&gt;Met TF1&lt;tag&gt;out.action.ir_code=&quot;CODE_INFRAROUGE&quot;;&lt;/tag&gt;&lt;/item&gt;</em></p></pre>
+<p>Pour envoyer plusieurs commandes à la fois, il suffit de  mettre un tiret après chaque codes (le code en supporte 3  au maximum) ex : </p>
+<pre><em>&lt;item&gt;Allume la télé et l'ampli&lt;tag&gt;out.action.ir_code=&quot;CODE1-CODE2&quot;;&lt;/tag&gt;&lt;/item&gt;</em></pre>
+<h3>433Mhz</h3>
+<pre><em>&lt;item&gt;Allume la lumiere&lt;tag&gt;out.action.code_433=&quot;FFF00FFFFFFF&quot;;&lt;/tag&gt;&lt;/item&gt;</em></pre>
+<h3>Température/humidité</h3>
+<pre><em>&lt;item&gt;Donne moi la température&lt;tag&gt;out.action.command = &quot;temperature&quot;;&lt;/tag&gt;&lt;/item&gt;<br>
+&lt;item&gt;Donne moi l'humidté&lt;tag&gt;out.action.command=&quot;humidite&quot;;&lt;/tag&gt;&lt;/item&gt;</em></pre>
+</body>
